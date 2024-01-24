@@ -1,0 +1,7 @@
+How to deal with non-fast forward errors?
+
+Cause of the error
+....................
+This error is faced when git cannot commit your changes to the remote repository. This may happen because your commit was lost or if someone else is trying to push to the same branch as you. This is the error you face.
+Ans = 
+This can be fixed by fetching and merging the changes made on the remote branch with the changes that you have made locally. Run the following commands to fetch and merge.
