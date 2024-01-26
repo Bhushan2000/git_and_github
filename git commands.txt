@@ -1,12 +1,16 @@
 Useful Git Commands List
 Command	Description
+.......................
 git init	Initialize a local Git repository
 git clone repo_url	Clone public repository
 git clone ssh://git@github.com/[username]/[repository-name].git	Clone private repository
 git status	Check status
 git add [file-name]	Add a file to the staging area
 git add -A	Add all new and changed files to the staging area
+git add fil* With the asterisk in the command below, you can add all files starting with 'fil' in the staging area.
 git commit -m "[commit message]"	Commit changes
+git commit A commit message is made up of a short summary of changes, an empty line, and a full description of the changes after it.
+git commit -a -m"your commit message here" You can add and commit tracked files with a single command by using the -a and -m options.
 git rm -r [file-name.txt]	Remove a file (or folder)
 git branch	List of branches (the asterisk denotes the current branch)
 git branch -a	List all branches (local and remote)
@@ -35,8 +39,61 @@ git remote set-url origin ssh://git@github.com/[username]/[repository-name].git	
 git log	View changes
 git log --summary	View changes (detailed)
 git log --oneline	View changes (briefly)
+git log -p This command shows the commit's history including all files and their changes
 git diff [source branch] [target branch]	Preview changes before merging
 git revert commitid	Revert commit changes
 git config --global user.name "your_username"	Set globally Username
 git config --global user.email "your_email_address@example.com"	Set globally Email id
 git config --global --list	Get global config
+git show commit-id Replace commit-id with the id of the commit that you find in the commit log after the word commit.
+git log --stat This command will cause the Git log to show some statistics about the changes in each commit, including line(s) changed and file names.
+
+see changes made before committing them using "diff" in Git
+............................................................
+You can pass a file as a parameter to only see changes on a specific file.
+git diff shows only unstaged changes by default.
+
+We can call diff with the --staged flag to see any staged changes.
+
+git diff
+git diff all_checks.py
+git diff --staged
+
+git add -p This command opens a prompt and asks if you want to stage changes or not, and includes other options.
+git rm filename This command expects a commit message to explain why the file was deleted.
+How to ignore files in Git:
+Create a .gitignore file and commit it.
+..........................................
+How to revert unstaged changes in Git
+git checkout filename
+.......................
+How to revert staged changes in Git:
+You can use the -p option flag to specify the changes you want to reset.
+
+git reset HEAD filename
+git reset HEAD -p
+..............................
+git commit --amend allows you to modify and add changes to the most recent commit.
+!!Note!!: fixing up a local commit with amend is great and you can push it to a shared repository after you've fixed it. 
+But you should avoid amending commits that have already been made public.
+.....................................................
+git revert will create a new commit that is the opposite of everything in the given commit.
+We can revert the latest commit by using the head alias like this:
+
+git revert HEAD
+..............................
+git merge --abort How to abort a conflicting merge in Git
+............................
+You can see all remote repositories for your local repository with this command:
+git remote -v
+...........
+How to check remote branches that Git is tracking
+git branch -r
+.....
+You can transfer completed work from one branch to another using git rebase.
+git rebase branch_name_here
+
+Git Rebase can get really messy if you don't do it properly. 
+Before using this command I suggest that you re-read the official documentation here
+.........................
+git push -f force a push request in Git
