@@ -1,0 +1,9 @@
+
+cd command error
+Set-Location : A positional parameter cannot be found that accepts argument 'and'.
+
+solution 
+Since your directory name contains spaces, you must quote it, e.g.:
+
+# Note: In PowerShell, 'cd' is an alias of 'Set-Location'
+cd 'Program Files'
